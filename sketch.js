@@ -45,6 +45,7 @@ function setup() {
 function draw() {
   background(0, 0, 255);
 
+  textSize(48);
   text("ACCookie", width/2, height/2 -350);
 
   if (state === 0) {
