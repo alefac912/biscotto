@@ -3,11 +3,15 @@ let phrases = [];
 let state = 0;
 let currentPhrase = "";
 
+let counter = 0;
+
 let paperWidth = 600;
 let paperHeight = 200;
 let paperY, paperX;
 
 let imgWhole, imgLeft, imgRight;
+
+let crackSound;
 
 function preload() {
   table = loadTable("assets/phrases.csv", "csv", "header");
@@ -15,6 +19,9 @@ function preload() {
   imgWhole = loadImage('assets/cookie_whole.png');
   imgLeft = loadImage('assets/cookie_left.png');
   imgRight = loadImage('assets/cookie_right.png');
+
+  soundFormats('mp3', 'ogg');
+  crackSound = loadSound('/assets/crackSound.mp3');
 }
 
 function setup() {
@@ -76,14 +83,31 @@ function draw() {
     fill(255);
     textSize(24);
     text("Clicca per aprire un nuovo biscotto", width / 2, height / 2 + 200);
+
+    if (counter % 10 === 0) {
+      fill('#fac912')
+      textSize(96);
+      text("ACCUR/AI", width/2, height/2);
+    }
   }
+  console.log(counter);
 }
 
 function mousePressed() {
   if (state === 0) {
     crackCookie();
+    crackSound.play();
+    counter = counter +1;
   } else {
     state = 0;
+  }
+}
+
+function touchStarted() {
+  if (value === 0) {
+    value = 255;
+  } else {
+    value = 0;
   }
 }
 
@@ -96,3 +120,5 @@ function crackCookie() {
   }
   state = 1;
 }
+
+
