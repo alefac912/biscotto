@@ -11,7 +11,7 @@ let paperY, paperX;
 
 let imgWhole, imgLeft, imgRight;
 
-let crackSound;
+//let crackSound;
 
 function preload() {
   table = loadTable("assets/phrases.csv", "csv", "header");
@@ -21,7 +21,7 @@ function preload() {
   imgRight = loadImage('assets/cookie_right.png');
 
   soundFormats('mp3', 'ogg');
-  crackSound = loadSound('/assets/crackSound.mp3');
+  //crackSound = loadSound('/assets/crackSound.mp3');
 }
 
 function setup() {
@@ -96,7 +96,7 @@ function draw() {
 function mousePressed() {
   if (state === 0) {
     crackCookie();
-    crackSound.play();
+    //crackSound.play();
     counter = counter +1;
   } else {
     state = 0;
