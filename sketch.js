@@ -20,7 +20,7 @@ function preload() {
   imgLeft = loadImage('assets/cookie_left.png');
   imgRight = loadImage('assets/cookie_right.png');
 
-  soundFormats('mp3', 'ogg');
+  //soundFormats('mp3', 'ogg');
   //crackSound = loadSound('/assets/crackSound.mp3');
 }
 
